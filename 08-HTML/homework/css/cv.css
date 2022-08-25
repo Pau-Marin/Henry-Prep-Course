@@ -25,15 +25,29 @@ p {
   text-align: justify;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
 #header {
   margin-top: 25px;
 }
 
 #imagen_descripcion {
   display: inline-block;
+  text-align: center;
   width: 30%;
   float: right;
   margin-left: 15px;
+  border: 1px solid black;
 }
 
 #descripcion {
