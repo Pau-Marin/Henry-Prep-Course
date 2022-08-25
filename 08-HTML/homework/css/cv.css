@@ -1,0 +1,41 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  width: 60%;
+  margin: 0 auto;
+}
+
+h2 {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 30px;
+  color: #3c3c3c;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 20px;
+  color: #555555;
+}
+
+h4 {
+  color: #555555;
+}
+
+p {
+  text-align: justify;
+}
+
+#header {
+  margin-top: 25px;
+}
+
+#imagen_descripcion {
+  display: inline-block;
+  width: 30%;
+  float: right;
+  margin-left: 15px;
+}
+
+#descripcion {
+  width: 70%;
+}
