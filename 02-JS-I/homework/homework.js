@@ -4,7 +4,7 @@
 const nuevaString = "Hola";
 
 // Crea una variable numérica, puede ser cualquier número:
-const nuevoNum = 4;
+const nuevoNum = 123;
 
 // Crea una variable booleana:
 const nuevoBool = true;
@@ -59,7 +59,7 @@ function sonIguales(x, y) {
   // Devuelve "true" si "x" e "y" son iguales
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (x == y) {
+  if (x === y) {
     return true;
   } else {
     return false;
@@ -70,7 +70,7 @@ function tienenMismaLongitud(str1, str2) {
   // Devuelve "true" si las dos strings tienen la misma longitud
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (str1.length == str2.length) {
+  if (str1.length === str2.length) {
     return true;
   } else {
     return false;
@@ -109,7 +109,7 @@ function esPar(num) {
   // Devuelve "true" si "num" es par
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num % 2 == 0) {
+  if (num % 2 === 0) {
     return true;
   } else {
     return false;
@@ -120,12 +120,11 @@ function esImpar(num) {
   // Devuelve "true" si "num" es impar
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num % 2 == 1) {
-    return true;
-  } else {
+  if (num % 2 === 0) {
     return false;
+  } else {
+    return true;
   }
-  //return !esPar(num);
 }
 
 function elevarAlCuadrado(num) {
@@ -133,14 +132,12 @@ function elevarAlCuadrado(num) {
   // ojo: No es raiz cuadrada!
   // Tu código:
   return Math.pow(num, 2);
-  // return elevar(num, 2);
 }
 
 function elevarAlCubo(num) {
   // Devuelve el valor de "num" elevado al cubo
   // Tu código:
   return Math.pow(num, 3);
-  // return elevar(num, 3);
 }
 
 function elevar(num, exponent) {
@@ -172,15 +169,13 @@ function esPositivo(numero) {
   //Si el número es positivo, devolver ---> "Es positivo"
   //Si el número es negativo, devolver ---> "Es negativo"
   //Si el número es 0, devuelve false
-  var result;
-  if (numero > 0) {
-    result = "Es positivo";
-  } else if (numero < 0) {
-    result = "Es negativo";
-  } else {
+  if (numero === 0) {
     return false;
+  } else if (numero > 0) {
+    return "Es positivo";
+  } else if (numero < 0) {
+    return "Es negativo";
   }
-  return result;
 }
 
 function agregarSimboloExclamacion(str) {
@@ -220,7 +215,6 @@ function areaDelTriangulo(base, altura) {
   //Desarrolle una función que calcule el área de un triángulo.
   //Escribe tu código aquí
   return (base * altura) / 2;
-  //return obtenerAreaRectangulo(base, altura) / 2;
 }
 
 function deEuroAdolar(euro) {
@@ -236,20 +230,16 @@ function esVocal(letra) {
   //que no se puede procesar el dato mediante el mensaje "Dato incorrecto".
   // Si no es vocal, tambien debe devolver "Dato incorrecto".
   //Escribe tu código aquí
-  if (letra.length > 1) {
-    return "Dato incorrecto";
-  } else {
-    switch (letra) {
-      case "a":
-      case "e":
-      case "i":
-      case "o":
-      case "u":
-        return "Es vocal";
-        break;
-      default:
-        return "Dato incorrecto";
-    }
+  if (letra.length !== 1) return "Dato incorrecto";
+  switch (letra) {
+    case "a":
+    case "e":
+    case "i":
+    case "o":
+    case "u":
+      return "Es vocal";
+    default:
+      return "Dato incorrecto";
   }
 }
 

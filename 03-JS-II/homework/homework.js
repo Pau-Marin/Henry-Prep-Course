@@ -31,13 +31,13 @@ function conection(status) {
   // De lo contrario, presumimos que el usuario está "Offline"
   // Devolver el estado de conexión de usuario en cada uno de los casos.
   // Tu código:
-  if (status == 1) {
+  if (status === 1) {
     return "Online";
-  } else if (status == 2) {
+  } else if (status === 2) {
     return "Away";
-  } else {
-    return "Offline";
   }
+
+  return "Offline";
 }
 
 function saludo(idioma) {
@@ -85,7 +85,7 @@ function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (numero == 10 || numero == 5) {
+  if (numero === 10 || numero === 5) {
     return true;
   } else {
     return false;
@@ -111,7 +111,7 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  if (numero == Math.floor(numero)) {
+  if (numero === Math.floor(numero)) {
     return true;
   } else {
     return false;
@@ -123,15 +123,18 @@ function fizzBuzz(numero) {
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
-  var resultado = "";
-  if (numero % 3 == 0) {
-    resultado += "fizz";
+  var result = "";
+
+  if (numero % 3 === 0) {
+    result += "fizz";
   }
-  if (numero % 5 == 0) {
-    resultado += "buzz";
+
+  if (numero % 5 === 0) {
+    result += "buzz";
   }
-  if (resultado != "") {
-    return resultado;
+
+  if (result.length > 0) {
+    return result;
   } else {
     return numero;
   }
@@ -144,22 +147,14 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false.
+  if (num1 === 0 || num2 === 0 || num3 === 0) return "Error";
 
-  if (num1 == 0 || num2 == 0 || num3 == 0) {
-    return "Error";
-  }
+  if (num1 < 0 || num2 < 0 || num3 < 0) return "Hay negativos";
 
-  if (num1 < 0 || num2 < 0 || num3 < 3) {
-    return "Hay negativos";
-  }
-
-  if (num3 > num1 && num3 > num2) {
-    return num3 + 1;
-  }
-
-  if (num1 > num2 && num1 > num3 && num1 > 0) {
+  if (num1 > num2 && num1 > num3 && num1 > 0)
     return "Número 1 es mayor y positivo";
-  }
+
+  if (num3 > num1 || num3 > num2) return num3 + 1;
 
   return false;
 }
@@ -185,34 +180,28 @@ function esVerdadero(valor) {
   //Escribe una función que reciba un valor booleano y retorne “Soy verdadero”
   //si su valor es true y “Soy falso” si su valor es false.
   //Escribe tu código aquí
-  if (valor) {
-    return "Soy verdadero";
-  } else {
-    return "Soy falso";
-  }
+  if (valor) return "Soy verdadero";
+  else return "Soy falso";
 }
 
 function tablaDelSeis() {
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí
-  var tabla6 = [];
+  var result = [];
 
   for (var i = 0; i < 11; i++) {
-    tabla6.push(i * 6);
+    result.push(6 * i);
   }
 
-  return tabla6;
+  return result;
 }
 
 function tieneTresDigitos(numero) {
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-  if (numero >= 100 && numero <= 999) {
-    return true;
-  } else {
-    return false;
-  }
+  if (numero >= 100 && numero <= 999) return true;
+  else return false;
 }
 
 function doWhile(numero) {
@@ -220,14 +209,11 @@ function doWhile(numero) {
   //Retornar el valor final.
   //Usar el bucle do ... while.
   var count = 0;
-  var result = numero;
-
   do {
-    result += 5;
+    numero += 5;
     count++;
   } while (count < 8);
-
-  return result;
+  return numero;
 }
 
 // No modificar nada debajo de esta línea

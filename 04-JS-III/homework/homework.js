@@ -23,11 +23,13 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var result = [];
+  var newArray = [];
+
   for (var i = 0; i < array.length; i++) {
-    result.push(array[i] + 1);
+    newArray[i] = array[i] + 1;
   }
-  return result;
+
+  return newArray;
 }
 
 function agregarItemAlFinalDelArray(array, elemento) {
@@ -35,6 +37,7 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // y devuelve el array
   // Tu código:
   array.push(elemento);
+
   return array;
 }
 
@@ -43,12 +46,6 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
-  // var result = [];
-  // result.push(elemento);
-
-  // for (var i = 0; i < array.length; i++) {
-  //   result.push(array[i]);
-  // }
   array.unshift(elemento);
 
   return array;
@@ -62,10 +59,10 @@ function dePalabrasAFrase(palabras) {
   // Tu código:
   var result = "";
 
-  for (var i = 0; i < palabras.length; i++) {
-    result += palabras[i];
-    if (i != palabras.length - 1) result += " ";
+  for (var i = 0; i < palabras.length - 1; i++) {
+    result += palabras[i] + " ";
   }
+  result += palabras[palabras.length - 1];
 
   return result;
 }
@@ -74,15 +71,13 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  if (array.length < 1) return false;
-
   for (var i = 0; i < array.length; i++) {
     if (array[i] === elemento) {
       return true;
-    } else {
-      return false;
     }
   }
+
+  return false;
 }
 
 function agregarNumeros(numeros) {
@@ -108,9 +103,7 @@ function promedioResultadosTest(resultadosTest) {
     result += resultadosTest[i];
   }
 
-  result /= resultadosTest.length;
-
-  return result;
+  return result / resultadosTest.length;
 }
 
 function numeroMasGrande(numeros) {
@@ -120,7 +113,9 @@ function numeroMasGrande(numeros) {
   var result = 0;
 
   for (var i = 0; i < numeros.length; i++) {
-    if (numeros[i] > result) result = numeros[i];
+    if (numeros[i] > result) {
+      result = numeros[i];
+    }
   }
 
   return result;
@@ -130,9 +125,10 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  var result = 1;
+
   if (arguments.length < 1) return 0;
 
-  var result = 1;
   for (var i = 0; i < arguments.length; i++) {
     result *= arguments[i];
   }
@@ -146,7 +142,9 @@ function cuentoElementos(arreglo) {
   var result = 0;
 
   for (var i = 0; i < arreglo.length; i++) {
-    if (arreglo[i] > 18) result++;
+    if (arreglo[i] > 18) {
+      result++;
+    }
   }
 
   return result;
@@ -157,10 +155,18 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario.
   //Escribe tu código aquí
-  if (numeroDeDia == 1 || numeroDeDia == 7) {
-    return "Es fin de semana";
-  } else {
-    return "Es dia Laboral";
+  switch (numeroDeDia) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return "Es dia Laboral";
+    case 7:
+    case 1:
+      return "Es fin de semana";
+    default:
+      return null;
   }
 }
 
@@ -168,8 +174,7 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  var numero = n.toString();
-  if (numero.charAt(0) === "9") {
+  if (n.toString()[0] === "9") {
     return true;
   } else {
     return false;
@@ -180,13 +185,17 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí
-  for (var i = 0; i < arreglo.length - 1; i++) {
-    if (arreglo[i] !== arreglo[i + 1]) {
-      return false;
+  var result = false;
+
+  for (var i = 0; i < arreglo.length; i++) {
+    if (arreglo[i] === arreglo[i + 1]) {
+      result = true;
+    } else {
+      arreglo = false;
     }
   }
 
-  return true;
+  return result;
 }
 
 function mesesDelAño(array) {
@@ -195,6 +204,7 @@ function mesesDelAño(array) {
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
   var result = [];
+
   for (var i = 0; i < array.length; i++) {
     if (
       array[i] === "Enero" ||
@@ -204,11 +214,10 @@ function mesesDelAño(array) {
       result.push(array[i]);
     }
   }
-
-  if (result.length < 3) {
-    return "No se encontraron los meses pedidos";
-  } else {
+  if (result.length === 3) {
     return result;
+  } else {
+    return "No se encontraron los meses pedidos";
   }
 }
 
@@ -219,7 +228,9 @@ function mayorACien(array) {
   var result = [];
 
   for (var i = 0; i < array.length; i++) {
-    if (array[i] > 100) result.push(array[i]);
+    if (array[i] > 100) {
+      result.push(array[i]);
+    }
   }
 
   return result;
@@ -234,15 +245,16 @@ function breakStatement(numero) {
   //Pista: usá el statement 'break'
   // Tu código:
   var result = [];
-  var num = numero;
+  var suma = numero;
+  var count = 0;
 
   for (var i = 0; i < 10; i++) {
-    num += 2;
+    count++;
+    suma += 2;
+    result.push(suma);
 
-    if (num === i) {
+    if (count === suma) {
       return "Se interrumpió la ejecución";
-    } else {
-      result.push(num);
     }
   }
 
@@ -257,14 +269,16 @@ function continueStatement(numero) {
   //Pista: usá el statement 'continue'
   // Tu código:
   var result = [];
-  var num = numero;
+  count = 0;
+  suma = numero;
 
   for (var i = 0; i < 10; i++) {
-    if (i === 5) {
+    count++;
+    if (count === 5) {
       continue;
     } else {
-      num += 2;
-      result.push(num);
+      suma += 2;
+      result.push(suma);
     }
   }
 
